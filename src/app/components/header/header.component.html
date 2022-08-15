@@ -1,1 +1,21 @@
-<p>header works!</p>
+<header>
+    <h1>Calculadora Online</h1>
+    <nav class="enlaces">
+        <a routerLinkActive="active" [routerLink]="['/']">{{ 'navButton1.linkText' | translate}}</a>
+        <a routerLinkActive="active" [routerLink]="['/donaciones']">{{ 'navButton2.linkText' | translate}}</a>
+    </nav>
+    <form class="language-form">
+        <mat-form-field  class="details-form__form-field">
+            <mat-label class="details-form__form-field__label">Language</mat-label>
+            <mat-select class="details-form__form-field__select" name="language" (change)="useLanguage('index-en')">
+                <mat-option  *ngFor="let language of languages" value="{{language}}" >
+                    {{ language }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</header>
+
+
+
+
