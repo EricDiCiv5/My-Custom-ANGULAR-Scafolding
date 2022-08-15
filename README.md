@@ -1,4 +1,27 @@
-# MyCustomScafolding
+## Table of Contents
+
+[🏗️ Heroku Deployment Via Docker](#demo)
+[📜 Bash Script to automatize Heroku's deployment Via Docker](#bash-script)
+[S.O., NPM and NodeJS Versions](#some-versions)
+[Project's scaffolding](#default-scaffolding)
+[NPM Libraries used for this project](#npm-libraries)
+
+## Demo
+
+<!-- Poner link que toque en el examen -->
+[Ir a la demo](https://web-marvel.herokuapp.com/) 
+
+## Bash Script
+
+## Some Versions
+
+## Default Scaffolding
+This project was generated with a custom template that i made and uploaded into this [Github's public repo](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding).
+
+![Screenshot](./src/assets/images/EDC_DefaultScaffolding.png);
+
+## NPM Libraries
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
