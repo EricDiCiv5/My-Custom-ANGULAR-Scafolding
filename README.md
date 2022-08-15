@@ -3,8 +3,10 @@
 * [🐳 Heroku Deployment Via Docker](#demo)
 * [📜 Bash Script to automatize Heroku's deployment Via Docker](#bash-script)
 * [📖 S.O., NPM and NodeJS Versions](#some-versions)
-* [🏗️ Project's scaffolding](#default-scaffolding)
 * [📚 NPM Libraries used for this project](#npm-libraries)
+* [🏗️ Project's scaffolding](#default-scaffolding)
+* [📝 Checking if project is working](#check-proper-working)
+* [🎨 SCSS styles: variables, mixins and fonts](#scss-styles)
 
 ## Demo
 
@@ -13,18 +15,80 @@
 
 ## Bash Script
 
+<!-- Cambiar nombre del repo en el link -->
+
+In order to automatize the process of deployment to Heroku via Container Registry (Docker in this case),
+I've created and bash script file called [dockerizeAppAngular.sh](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding/blob/master/dockerizeAngularApp.sh).
+
+Basically what this script does consist in:
+
+    1. Assigning variables of image and Heroku's Server.
+    2. Creating the nginx folder and downloading the default.conf file.
+    3. Downloading the Dockerfile for Angular.
+    4. Building the docker image.
+    5. Installing Heroku if they'are not installed.
+    6. Log in into Heroku.
+    7. Log in on the heroku's container.
+    8. Creating heroku's server if it don't exist.
+    9. Putting tag on the image for the heroku's better understanding.
+    10. Pushing it into heroku's docker container registry.
+    11. Releasing the image into the heroku's web server.
+
+For executing it, open a git bash terminal on the project's root folder and type ./dockerizeAppAngular.sh.
+
 ## Some Versions
+
+* Windows 10 Enterprise (64-bit)
+* Angular-CLi version 14.0.4
+* NodeJS version 16.15.1
+* NPM version 8.13.2
+
+## NPM Libraries
+
+<!-- Quitar o poner librerías si hiciera falta en el examen -->
+
+* ngx-translate to perform a multi.language selector in header component.
+* xng-breadcrumb (For showing the website's breadcrumbs in each )
+* jsonwebtoken (For getting and managing the token on its JWT server).
+* socket.io-client (For implementing the websockets functionalities on the website).
 
 ## Default Scaffolding
 This project was generated with a custom template that i made and uploaded into this [Github's public repo](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding).
 
-![alt-text-1](./src/assets/images/EDC_DefaultScaffolding.png "Default scaffolding part1")
-![alt-text-2](./src/assets/images/EDC_DefaultScaffolding2.png "Default scaffolding part2")
+![alt-text-1](./src/assets/images/readme_images/EDC_DefaultScaffolding.png "Default scaffolding part1")
+![alt-text-2](./src/assets/images/readme_images/EDC_DefaultScaffolding2.png "Default scaffolding part2")
 
-## NPM Libraries
+About the images above i just want to highlight that i've created the components, modules, pipes, services and styles folder inside the app one and also i've added inside the assets folder the i18n file for internazionalization and also the images folder for storing all the .svg, .png and jpg. files of the project.
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+## Check proper working
+In order to ensure that the project is up and running properly on local, follow the steps:
+
+1. Clone the project 'git clone pasteProjectURL' or Download its ZIP and extract it all.
+2. Just type 'npm update' if it requires to have the latests libraries and dependencies versions. 
+3. Type 'npm install' to load it all.
+4. Finally, type 'ng serve -o' or 'ng build' for checking if the projects opens a local dev server and compiles the Angular app.
+
+## SCSS styles
+
+Firstable i've created the colors, mixins, tipography and global files inside the styles folder.
+
+![alt-text-3](./src/assets/images/readme_images/stylesFolder.png "Files insider styles folder")
+
+Then, on the colors file i've applied the variables that i'll use more than once on the angular project by creating variables (which starts with $) and then applying the styles
+
+<!-- Poner código con colores del proyecto. Ahora pondré otro de otro proyecto -->
+```
+$blackMarvel: #151515;
+$blackMarvel2: #202020; 
+$redMarvel: #e62429;
+$whiteMarvel: #FFFFFF;
+$buttonsGrayMarvel: #657e88;
+$footerHoverButtonsMarvel: #bbb;
+$darkGrayMarvel: #767676;
+$grayBorders: #393939;
+```
+
 
 ## Development server
 
