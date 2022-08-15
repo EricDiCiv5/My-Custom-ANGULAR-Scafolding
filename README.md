@@ -75,10 +75,10 @@ Firstable i've created the colors, mixins, tipography and global files inside th
 
 ![alt-text-3](./src/assets/images/readme_images/stylesFolder.png "Files insider styles folder")
 
-Then, on the colors file i've applied the variables that i'll use more than once on the angular project by creating variables (which starts with $) and then applying the styles
+Then, on the colors file i've applied the variables that i'll use more than once on the angular project by creating variables (which starts with $) and then applying the styles.
 
 <!-- Poner código con colores del proyecto. Ahora pondré otro de otro proyecto -->
-```
+```scss
 $blackMarvel: #151515;
 $blackMarvel2: #202020; 
 $redMarvel: #e62429;
@@ -89,6 +89,7 @@ $darkGrayMarvel: #767676;
 $grayBorders: #393939;
 ```
 
+Moving on, on the mixins file i've created mixins for putting most of the flex and grid properties of the father container, a mixins for create
 
 ## Development server
 
