@@ -7,6 +7,8 @@
 * [🏗️ Project's scaffolding](#default-scaffolding)
 * [📝 Checking if project is working](#check-proper-working)
 * [🎨 SCSS styles: variables, mixins and fonts](#scss-styles)
+* [🌐 Creating a multi-language site using ngx-translate library](#i18n-json-files)
+* [🔎 ESLInt and Prettier Config](#eslint-and-prettier)
 
 ## Demo
 
@@ -71,11 +73,19 @@ In order to ensure that the project is up and running properly on local, follow 
 
 ## SCSS styles
 
+* [Colors.scss styles](#colors-file)
+* [Mixins.scss styles](#mixins-file)
+* [Tipography.scss styles](#tipography-file)
+* [Global.scss styles](#global-file)
+
+
 Firstable i've created the colors, mixins, tipography and global files inside the styles folder.
 
 ![alt-text-3](./src/assets/images/readme_images/stylesFolder.png "Files insider styles folder")
 
-Then, on the colors file i've applied the variables that i'll use more than once on the angular project by creating variables (which starts with $) and then applying the styles.
+#### Colors File
+
+On the colors file I've applied the variables that i'll use more than once on the angular project by creating variables (which starts with $) and then applying the styles.
 
 <!-- Poner código con colores del proyecto. Ahora pondré otro de otro proyecto -->
 ```scss
@@ -89,15 +99,142 @@ $darkGrayMarvel: #767676;
 $grayBorders: #393939;
 ```
 
-Moving on, on the mixins file i've created mixins for putting most of the flex and grid properties of the father container, a mixins for create
+#### Mixins File
 
-## Development server
+Moving on, on the mixins file i've created the following mixins:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. allmedias mixin (which takes into account different device's max-widths using the map-get() method) 
+2. flex mixin (which brings together most of the father container's flex properties)
+3. grid mixin (which brings together most of the father container's grid properties)
+4. transform mixin (which makes the transform property compatible for most of the web browsers).
+5. box-model mixin (which makes the box-sizing property compatible for most of the web browsers).
 
-## Code scaffolding
+```scss
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+$breakpoints: (
+    phone-small: 425px,
+    phone: 768px,
+    tab-port: 1024px,
+    tab-land: 1200px,
+    footerFirstChange: 840px,
+    footerSecondChange: 600px,
+    footerThirdChange: 426px,
+    tab-desktop: 1600px
+);
+
+@mixin allmedias($breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+@mixin transform($transforms) {
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+    -o-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin flex($disp, $direct, $corte, $justif, $alIt, $alCont) {
+    display: $disp;
+    flex-flow: $direct $corte;
+    justify-content: $justif;
+    align-items: $alIt;
+    align-content: $alCont;
+}
+
+@mixin grid($dis, $filas, $columnas, $brechaFila, $brechaCol, $justIt, $justCont, $aliCont) {
+    display: $dis;
+    grid-template: repeat($filas, auto) / repeat($columnas, auto);
+    grid-gap: $brechaFila $brechaCol;
+    justify-items: $justIt;
+    justify-content: $justCont;
+    $align-content: $aliCont;
+}
+
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model; // Safari <= 5
+    -moz-box-sizing: $box-model; // Firefox <= 19
+    -o-box-sizing: $box-model;
+    box-sizing: $box-model;
+}
+```
+
+#### Tipography File
+
+On the tipography file i've imported a google font and then creating a variable to assign its value.
+
+```scss
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$mainFont: 'Open Sans', sans-serif;
+```
+
+#### Global file
+
+Finally, on the global file, i've put the imports of the previous three scss files and some properties to the * selector.
+
+```scss
+@import 'colors.scss';
+@import 'mixins.scss';
+@import 'tipography.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: content-box;
+}
+```
+
+In order to show all those styles for all components, we have the put of @import of the global.scss once on the styles.scss.
+
+## I18n JSON Files
+
+In order to have had a multi-language site follow install all the packages from ngx-translate, create a service and communicate it with the controller on the component which will be located the multi-language selector (header, for example) and then create the JSON files (in out case 2), which they will follow a format similar to this ⬇️⬇️
+
+<table>
+<tr>
+<td> eng.json file </td> <td> es.json file </td>
+</tr>
+<tr>
+<td> ENG </td>
+<td>
+
+```json                                         
+{                                                
+    "translations": {                              
+        "text1": "First text for the translations",   
+        "text2": "Second text for the trasnslations", 
+        "text3": "Third text for the translations"    
+    }                                              
+ }
+```
+
+</td>
+</tr>
+<tr>
+<td> ES </td>
+<td>
+
+```json                                         
+{                                                
+    "translations": {                              
+        "text1": "Primero texto para las traducciones",   
+        "text2": "Segundo texto para las traducciones", 
+        "text3": "Tercer texto para las traducciones"    
+    }                                              
+ }
+```
+
+</td>
+</tr>
+</table>
+
+* On the view we can put the double interpolation with the ```{{jsonObject.jsonProperty | translate}}``` format.
+
+## ESLint amd Prettier
 
 ## Build
 
