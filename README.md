@@ -1,10 +1,10 @@
 ## Table of Contents
 
-* [🏗️ Heroku Deployment Via Docker](#demo)
+* [🐳 Heroku Deployment Via Docker](#demo)
 * [📜 Bash Script to automatize Heroku's deployment Via Docker](#bash-script)
-* [S.O., NPM and NodeJS Versions](#some-versions)
-* [Project's scaffolding](#default-scaffolding)
-* [NPM Libraries used for this project](#npm-libraries)
+* [📖 S.O., NPM and NodeJS Versions](#some-versions)
+* [🏗️ Project's scaffolding](#default-scaffolding)
+* [📚 NPM Libraries used for this project](#npm-libraries)
 
 ## Demo
 
@@ -19,7 +19,7 @@
 This project was generated with a custom template that i made and uploaded into this [Github's public repo](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding).
 
 ![alt-text-1](./src/assets/images/EDC_DefaultScaffolding.png "Default scaffolding part1")
-![Screenshot](./src/assets/images/EDC_DefaultScaffolding2.png)
+![alt-text-2](./src/assets/images/EDC_DefaultScaffolding2.png "Default scaffolding part2")
 
 ## NPM Libraries
 
