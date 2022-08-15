@@ -1,10 +1,10 @@
 ## Table of Contents
 
-[🏗️ Heroku Deployment Via Docker](#demo)
-[📜 Bash Script to automatize Heroku's deployment Via Docker](#bash-script)
-[S.O., NPM and NodeJS Versions](#some-versions)
-[Project's scaffolding](#default-scaffolding)
-[NPM Libraries used for this project](#npm-libraries)
+* [🏗️ Heroku Deployment Via Docker](#demo)
+* [📜 Bash Script to automatize Heroku's deployment Via Docker](#bash-script)
+* [S.O., NPM and NodeJS Versions](#some-versions)
+* [Project's scaffolding](#default-scaffolding)
+* [NPM Libraries used for this project](#npm-libraries)
 
 ## Demo
 
