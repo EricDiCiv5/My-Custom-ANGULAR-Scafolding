@@ -196,10 +196,9 @@ In order to have had a multi-language site follow install all the packages from 
 
 <table>
 <tr>
-<td> eng.json file </td> <td> es.json file </td>
 </tr>
 <tr>
-<td> ENG </td>
+<td> ENG.JSON </td>
 <td>
 
 ```json                                         
@@ -215,7 +214,7 @@ In order to have had a multi-language site follow install all the packages from 
 </td>
 </tr>
 <tr>
-<td> ES </td>
+<td> ES.JSON </td>
 <td>
 
 ```json                                         
@@ -234,7 +233,7 @@ In order to have had a multi-language site follow install all the packages from 
 
 * On the view we can put the double interpolation with the ```{{jsonObject.jsonProperty | translate}}``` format.
 
-## ESLint amd Prettier
+## ESLint and Prettier
 
 ## Build
 
