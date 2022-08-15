@@ -83,7 +83,7 @@ Firstable i've created the colors, mixins, tipography and global files inside th
 
 ![alt-text-3](./src/assets/images/readme_images/stylesFolder.png "Files insider styles folder")
 
-#### Colors File
+### Colors File
 
 On the colors file I've applied the variables that i'll use more than once on the angular project by creating variables (which starts with $) and then applying the styles.
 
@@ -99,7 +99,7 @@ $darkGrayMarvel: #767676;
 $grayBorders: #393939;
 ```
 
-#### Mixins File
+### Mixins File
 
 Moving on, on the mixins file i've created the following mixins:
 
@@ -161,7 +161,7 @@ $breakpoints: (
 }
 ```
 
-#### Tipography File
+### Tipography File
 
 On the tipography file i've imported a google font and then creating a variable to assign its value.
 
@@ -171,7 +171,7 @@ On the tipography file i've imported a google font and then creating a variable 
 $mainFont: 'Open Sans', sans-serif;
 ```
 
-#### Global file
+### Global file
 
 Finally, on the global file, i've put the imports of the previous three scss files and some properties to the * selector.
 
