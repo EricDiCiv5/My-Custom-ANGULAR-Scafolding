@@ -18,7 +18,7 @@
 ## Default Scaffolding
 This project was generated with a custom template that i made and uploaded into this [Github's public repo](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding).
 
-![Screenshot](./src/assets/images/EDC_DefaultScaffolding.png)
+![alt-text-1](./src/assets/images/EDC_DefaultScaffolding.png "Default scaffolding part1")
 ![Screenshot](./src/assets/images/EDC_DefaultScaffolding2.png)
 
 ## NPM Libraries
