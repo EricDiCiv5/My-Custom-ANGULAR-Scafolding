@@ -10,6 +10,7 @@
 * [🌐 Creating a multi-language site using ngx-translate library](#i18n-json-files)
 * [🔎 ESLInt and Prettier Config](#eslint-and-prettier)
 * [🅢🅞🅛🅘🅓 principles applied](#solid-principles-applied)
+* [Other principles applied](#more-principles-applied)
 * [🧱 Design pattern implemented on this project](#design-patterns-implemented)
 * [📄 Modules implemented on this project](#modules-implemented)
 * [🛡️ Guard implemented for the project implemented](#guard-implemented)
@@ -239,7 +240,7 @@ In order to have had a multi-language site follow install all the packages from 
 
 ## ESLint and Prettier
 
-Along this code, i'm trying to follow the ESLint rules and Prettier configuration as much as posible.
+Along this code, i'm trying to follow the ESLint rules and Prettier configuration as much as possible.
 IN order to enable and configure them, just by installing its Visual studio Code extensions [```dbaeumer.vscode-eslint``` & ```esbenp.prettier-vscode ```], installing the following dependencies:
 
 ```
@@ -260,6 +261,13 @@ And finally creating the [.eslintrc.json](https://raw.githubusercontent.com/gdsa
 - Dependency Injection Principles on some 'components.ts' when i instanciate as contrsuctor parameter the HttpClient and Router angular dependencies or even services that i've created (such as <!-- poner nombre del servicio -->).
 
 - Interface segregation principle on models folder, just by creating interfaces on models folder with the necessary set of attributes and methods to pass to service and/or controller.
+
+## More principles applied
+Also in this project i tried to implement as much as possible the next principles. 
+
+- K.I.S.S (Keep it simple, Stupid) 
+- D.R.Y (Don't repeat yourself)
+- Y.A.G.N.I (Your'e not gonna need it)
 
 ## Design patterns implemented
 
@@ -400,14 +408,13 @@ And finally, on app.module.ts will only remain all project's components.
 In order to don't allow an access path if, for example, we don't have the credentials and token on localStorage, we implement a guard.
 In this project the guard is of canActivate type and first we have to generate the guard via Angular-CLI ``` ng g guard guards/login ```, implement it and then it has to been declared on app-routing.module.ts on the following way:
 
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
 
 ```js
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'home',
-    canActivate: [LoginGuardGuard], `#f03c15`
+    canActivate: [LoginGuardGuard],
     component: ContainerComponent
   }
 ];
