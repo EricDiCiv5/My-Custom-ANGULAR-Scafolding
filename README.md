@@ -9,6 +9,10 @@
 * [🎨 SCSS styles: variables, mixins and fonts](#scss-styles)
 * [🌐 Creating a multi-language site using ngx-translate library](#i18n-json-files)
 * [🔎 ESLInt and Prettier Config](#eslint-and-prettier)
+* [🅢🅞🅛🅘🅓 principles applied](#solid-principles-applied)
+* [🧱 Design pattern implemented on this project](#design-patterns-implemented)
+* [📄 Modules implemented on this project](#modules-implemented)
+* [🛡️ Guard implemented for the project implemented](#guard-implemented)
 
 ## Demo
 
@@ -235,17 +239,183 @@ In order to have had a multi-language site follow install all the packages from 
 
 ## ESLint and Prettier
 
-## Build
+Along this code, i'm trying to follow the ESLint rules and Prettier configuration as much as posible.
+IN order to enable and configure them, just by installing its Visual studio Code extensions [```dbaeumer.vscode-eslint``` & ```esbenp.prettier-vscode ```], installing the following dependencies:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm install --save-dev eslint
+
+npm install --save-dev @typescript-eslint/eslint-plugin eslint-plugin-prettier
+
+npm install --save-dev prettier prettier-eslint eslint-config-prettier
+```
+
+And finally creating the [.eslintrc.json](https://raw.githubusercontent.com/gdsa1022/My-Custom-ANGULAR-Scafolding/master/.eslintrc.json), 
+[.eslintignore](https://raw.githubusercontent.com/gdsa1022/My-Custom-ANGULAR-Scafolding/master/.eslintignore) and [.prettierrc.json](https://raw.githubusercontent.com/gdsa1022/My-Custom-ANGULAR-Scafolding/master/.prettierrc.json) files with the configuration that we want to apply to our project.
+
+## SOLID Principles applied
+
+- Single Repsonsability Principle on 'components.ts' and 'service.ts' files, creating one by one in order to perform an specific task.
+
+- Dependency Injection Principles on some 'components.ts' when i instanciate as contrsuctor parameter the HttpClient and Router angular dependencies or even services that i've created (such as <!-- poner nombre del servicio -->).
+
+- Interface segregation principle on models folder, just by creating interfaces on models folder with the necessary set of attributes and methods to pass to service and/or controller.
+
+## Design patterns implemented
+
+* MVC: Applied on all of the components located on 'components' folder which uses the interfaces located model 'models' folder.
+* Pub-Sub: Applied on methods which implements the .subcribe() method, of the player-info controller by using the subscribe() method to retrieve the id passed as parameter of the URL on app-routing.module.ts
+* Decorator Pattern: On the component.ts which implements the @input and @Output decorators for passing and sharing properties between parent and childs.
+* Abstract Factory: Applied on resource.service.ts when i create the abstract class with generic types <T> on the 'services' folder.
+
+## Modules implemented
+
+For optimizing the project dependending if we are loading a module or a component, on the 'modules' folder we included and separated from app.module.ts these modules:
+
+* material-stuff.module.ts (Included all the modules from Angular Material library)
+* npm-libraries.module.ts (Included all the npm libraries used for this project)
+* pipes_and_directives.module.ts (As the title says, it's included all the pipes and directives used for the project)
+
+Example of the material-stuff-module.ts below:
+
+```ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    FormsModule
+  ],
+  exports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    FormsModule
+  ]
+})
+export class MaterialStuffModule { }
+```
+
+And finally, on app.module.ts will only remain all project's components.
+
+## Guard implemented
+
+In order to don't allow an access path if, for example, we don't have the credentials and token on localStorage, we implement a guard.
+In this project the guard is of canActivate type and first we have to generate the guard via Angular-CLI ``` ng g guard guards/login ```, implement it and then it has to been declared on app-routing.module.ts on the following way:
+
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
+
+```js
+const routes: Routes = [
+  { path: '', component: LoginComponent },
+  {
+    path: 'home',
+    canActivate: [LoginGuardGuard], `#f03c15`
+    component: ContainerComponent
+  }
+];
+```
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 
