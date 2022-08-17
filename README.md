@@ -4,6 +4,7 @@
 * [📜 Bash Script to automatize Heroku's deployment Via Docker](#bash-script)
 * [📖 S.O., NPM and NodeJS Versions](#some-versions)
 * [📚 NPM Libraries used for this project](#npm-libraries)
+* [🖼️ Previous Web Design](#previous-web-design)
 * [🏗️ Project's scaffolding](#default-scaffolding)
 * [📝 Checking if project is working](#check-proper-working)
 * [🎨 SCSS styles: variables, mixins and fonts](#scss-styles)
@@ -13,7 +14,11 @@
 * [Other principles applied](#more-principles-applied)
 * [🧱 Design pattern implemented on this project](#design-patterns-implemented)
 * [📄 Modules implemented on this project](#modules-implemented)
-* [🛡️ Guard implemented for the project implemented](#guard-implemented)
+* [🛡️ Guard implemented for the project](#guard-implemented)
+* [✋ Global http interceptor service for handling errors](#global-http-interceptor)
+* [👁️ Observables on service for getting data from an API](#observables-for-getting-data)
+* [<🆃> Abstract class with generic type](#class-with-generic-type)
+* [📖 Paginator component](#pagination-from-stratch)
 
 ## Demo
 
@@ -59,11 +64,23 @@ For executing it, open a git bash terminal on the project's root folder and type
 * jsonwebtoken (For getting and managing the token on its JWT server).
 * socket.io-client (For implementing the websockets functionalities on the website).
 
+## Previous web Design
+
+<!-- Cambiar los diseños genéricos -->
+
+Before starting to develop the project, i've made a previous web design using the Figma software , which recreates the web interface using three max-widths (the desktop, the horizontal smartphone and the vertical smartphone one)and store the three exported images on [the designs folder](./designs).
+
+![alt-text-1](./designs/VuelingExam_GenericWebDesign_Desktop.png "Design for Desktop")
+![alt-text-2](./designs/VuelingExam_GenericWebDesign_AndroidLarge_Horizontal.png "Design for Android Large Horizontal")
+![alt-text-3](./designs/VuelingExam_GenericWebDesign_AndroidLarge_Vertical.png "Design for Android Large Vertical")
+
+
 ## Default Scaffolding
+
 This project was generated with a custom template that i made and uploaded into this [Github's public repo](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding).
 
-![alt-text-1](./src/assets/images/readme_images/EDC_DefaultScaffolding.png "Default scaffolding part1")
-![alt-text-2](./src/assets/images/readme_images/EDC_DefaultScaffolding2.png "Default scaffolding part2")
+![alt-text-4](./src/assets/images/readme_images/EDC_DefaultScaffolding.png "Default scaffolding part1")
+![alt-text-5](./src/assets/images/readme_images/EDC_DefaultScaffolding2.png "Default scaffolding part2")
 
 About the images above i just want to highlight that i've created the components, modules, pipes, services and styles folder inside the app one and also i've added inside the assets folder the i18n file for internazionalization and also the images folder for storing all the .svg, .png and jpg. files of the project.
 
@@ -86,7 +103,7 @@ In order to ensure that the project is up and running properly on local, follow 
 
 Firstable i've created the colors, mixins, tipography and global files inside the styles folder.
 
-![alt-text-3](./src/assets/images/readme_images/stylesFolder.png "Files insider styles folder")
+![alt-text-6](./src/assets/images/readme_images/stylesFolder.png "Files insider styles folder")
 
 ### Colors File
 
@@ -419,6 +436,140 @@ const routes: Routes = [
   }
 ];
 ```
+
+## Global HTTP interceptor
+
+In order to able to get the http request and manage some possible errors that could appear, we create a service 
+which intercept those and throw it to a more specific service or component that implements the HTTP request thourhg observables and subscription.
+
+* Firstable we generate the service [``` ng g s services/global-http ```]
+* Then on the service we import the CatchError, throwError, Observable and several Http dependencies defined below:
+
+```js
+import { Injectable } from '@angular/core';
+import { catchError, Observable, throwError } from 'rxjs';
+import { HttpEvent, HttpHandler, HttpErrorResponse, HttpRequest, HttpInterceptor } from '@angular/common/http';
+```
+
+* Inside the class, we made the intercept method to handle the request and add a pipe with catchError method, which basically will show the error through console and throw it:
+
+```js
+    intercept(req: HttpRequest<HttpErrorResponse>, next: HttpHandler):Observable<HttpEvent<HttpErrorResponse>>{
+        return next.handle(req).pipe(
+            catchError((error) => {
+                console.log("Error is intercept");
+                console.error(error);
+                return throwError(() => error.message);
+            })
+        )
+    }
+```
+
+## Observables for getting data
+
+In this project has been implemented observables on the resource and the obtain-data services for detect any HTTP request made towards the API and also on the component which uses EventEmitter to show errors on the template.
+
+## Class with generic type
+
+For this project we implemented as a good practice to not repeat code for different services 
+which could have same or similar methods, an abstract class with a generic type T.
+On this project i used a generic type CRUD service, using the url of the APi as a string and passing the body of the request on the create and update method and the id on the delete method. 
+
+<!-- Poner el còdigo de la clase génerica que sea -->
+
+```js
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export abstract class AbstractHttpCallsService<T> {
+  protected abstract apiUrl: string;
+  constructor(protected http: HttpClient) {}
+
+  getList(): Observable<T[]> {
+    return this.http.get<T[]>(`${this.apiUrl}`);
+  }
+
+  getSingle(): Observable<T> {
+    return this.http.get<T>(`${this.apiUrl}`);
+  }
+
+  postData(body: T): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, body);
+  }
+
+  updateData(body: T): Observable<any> {
+    return this.http.put(`${this.apiUrl}`, body);
+  }
+
+  deleteData(id: number | string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+}
+```
+
+## Pagination from stratch
+In order to load a reduced number of elements obtained from api but mainting all of them, i made a paginator component which takes into account the limit and offset parameters on the API.
+
+On this case, i decide to choose a limited array of pages to not show them all.
+
+The pagination service i take into account the cases of being on first page, on last page and the rest of pages. 
+
+```js
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PaginationService {
+  limitArray = 3;
+  getArrayLimited(totalPages: number, currentPage: number): number[] {
+    let pageArrayLimited = [];
+    if (totalPages < this.limitArray) this.limitArray = totalPages;
+    else this.limitArray = 3;
+
+    if (currentPage > totalPages - (this.limitArray - 1)) {
+      for (
+        let index = totalPages;
+        index > totalPages - this.limitArray - 1;
+        index--
+      ) {
+        if (index >= 1) {
+          pageArrayLimited.push(index);
+        }
+      }
+      pageArrayLimited = pageArrayLimited.reverse();
+    } else if (currentPage != totalPages) {
+      if (currentPage == 1) {
+        for (
+          let index = currentPage;
+          index < currentPage + this.limitArray + 1;
+          index++
+        ) {
+          pageArrayLimited.push(index);
+        }
+      } else {
+        for (
+          let index = currentPage - 1;
+          index < currentPage + this.limitArray;
+          index++
+        ) {
+          if (index <= totalPages) {
+            pageArrayLimited.push(index);
+          }
+        }
+      }
+    }
+    return pageArrayLimited;
+  }
+}
+```
+
+
+
 
 ## Running unit tests
 
