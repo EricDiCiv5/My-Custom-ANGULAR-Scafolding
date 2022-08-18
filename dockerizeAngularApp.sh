@@ -8,11 +8,11 @@ server="web-marvel"     ## 👈 Escribe el nombre del servidor heroku
 echo "Creamos la carpega nginx y nos descargamos la configuración."
 mkdir nginx
 cd nginx
-curl https://raw.githubusercontent.com/nexus122/nginx_heroku-angular_configuration/main/default.conf -o default.conf
+curl https://raw.githubusercontent.com/gdsa1022/nginx-heroku-angular-config/master/default.conf -o default.conf
 cd ..
 
 ## Descargamos el Dockerfile de angular
-curl https://raw.githubusercontent.com/nexus122/nginx_heroku-angular_configuration/main/Dockerfile -o Dockerfile
+curl https://raw.githubusercontent.com/gdsa1022/heroku_angular_dockerfile/master/Dockerfile -o Dockerfile
 
 ## Ejecución de la dokerización
 echo "Se va a generar la imagen docker: "$image
