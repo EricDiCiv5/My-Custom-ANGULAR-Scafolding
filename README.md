@@ -15,6 +15,8 @@
 * [🧱 Design pattern implemented on this project](#design-patterns-implemented)
 * [📄 Modules implemented on this project](#modules-implemented)
 * [🛡️ Guard implemented for the project](#guard-implemented)
+* [Pipes used on this project](#pipes-made)
+* [⏳ Lazy Loading Directive implemented](#lazy-loading-directive)
 * [✋ Global http interceptor service for handling errors](#global-http-interceptor)
 * [👁️ Observables on service for getting data from an API](#observables-for-getting-data)
 * [<🆃> Abstract class with generic type](#class-with-generic-type)
@@ -286,7 +288,7 @@ Also in this project i tried to implement as much as possible the next principle
 
 - K.I.S.S (Keep it simple, Stupid) 
 - D.R.Y (Don't repeat yourself)
-- Y.A.G.N.I (Your'e not gonna need it)
+- Y.A.G.N.I (You're not gonna need it)
 
 ## Design patterns implemented
 
@@ -438,6 +440,36 @@ const routes: Routes = [
   }
 ];
 ```
+
+## Pipes made
+
+<!-- Poner más si uso más -->
+1. A pipe for concatenating the parth and the extension of the superhero's thumbnail.
+
+
+## Lazy-loading Directive
+In order to load only the images that it'll show soon on window instead of all, it has implemented a lazy loading directive for the thumbnails for the superheroes.
+
+After generating it with Angular-CLI command ```ng g d directives/lazyimgs```, next it has been implemented using the ElementRef
+dependency to access to HTML Image element.
+
+```js
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: 'img'
+})
+export class LazyImgsDirective {
+
+  constructor({nativeElement}:ElementRef<HTMLImageElement> ) 
+  {
+    const supports = 'loading' in HTMLImageElement.prototype;
+    if(supports) nativeElement.setAttribute('loading', 'lazy');
+  }
+
+}
+```
+
 
 ## Global HTTP interceptor
 
