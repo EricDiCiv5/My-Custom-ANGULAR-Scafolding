@@ -18,7 +18,9 @@
 * [✋ Global http interceptor service for handling errors](#global-http-interceptor)
 * [👁️ Observables on service for getting data from an API](#observables-for-getting-data)
 * [<🆃> Abstract class with generic type](#class-with-generic-type)
-* [📖 Paginator component](#pagination-from-stratch)
+* [📑✔️❌ Unit testing on the obtain-heroes service](#unit-testing)
+* [Running unit tests](#running-unit-tests)
+* [❓ Further Help](#further-help)
 
 ## Demo
 
@@ -493,83 +495,71 @@ export abstract class AbstractHttpCallsService<T> {
     return this.http.get<T[]>(`${this.apiUrl}`);
   }
 
-  getSingle(): Observable<T> {
-    return this.http.get<T>(`${this.apiUrl}`);
-  }
-
-  postData(body: T): Observable<any> {
-    return this.http.post(`${this.apiUrl}`, body);
-  }
-
-  updateData(body: T): Observable<any> {
-    return this.http.put(`${this.apiUrl}`, body);
-  }
-
-  deleteData(id: number | string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  getSinglebyID(id:number | string): Observable<T> {
+    return this.http.get<T>(`${this.apiUrl}/${id}`);
   }
 }
 ```
+## Unit testing
+For this project it has been implemented a unit on the get heroes service in order to check 
+if the API data given was received correctly.
 
-## Pagination from stratch
-In order to load a reduced number of elements obtained from api but mainting all of them, i made a paginator component which takes into account the limit and offset parameters on the API.
 
-On this case, i decide to choose a limited array of pages to not show them all.
+After imported all the necessary dependencies and models created, inside the describe() method 
+it has been mocked an array who emulates the format and types of data received from the API.
 
-The pagination service i take into account the cases of being on first page, on last page and the rest of pages. 
-
-```js
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class PaginationService {
-  limitArray = 3;
-  getArrayLimited(totalPages: number, currentPage: number): number[] {
-    let pageArrayLimited = [];
-    if (totalPages < this.limitArray) this.limitArray = totalPages;
-    else this.limitArray = 3;
-
-    if (currentPage > totalPages - (this.limitArray - 1)) {
-      for (
-        let index = totalPages;
-        index > totalPages - this.limitArray - 1;
-        index--
-      ) {
-        if (index >= 1) {
-          pageArrayLimited.push(index);
-        }
-      }
-      pageArrayLimited = pageArrayLimited.reverse();
-    } else if (currentPage != totalPages) {
-      if (currentPage == 1) {
-        for (
-          let index = currentPage;
-          index < currentPage + this.limitArray + 1;
-          index++
-        ) {
-          pageArrayLimited.push(index);
-        }
-      } else {
-        for (
-          let index = currentPage - 1;
-          index < currentPage + this.limitArray;
-          index++
-        ) {
-          if (index <= totalPages) {
-            pageArrayLimited.push(index);
-          }
-        }
-      }
-    }
-    return pageArrayLimited;
-  }
-}
+```ts
+let arrayHeroes:IHero[] = [
+      {id: 1, name: "batman", thumbnail: "path.extension"},
+      {id: 2, name: "superman", thumbnail: "path.extension"},
+      {id: 3, name: "namor", thumbnail: "path.extension"}
+  ];
 ```
 
+And then we write to it(), one for receiving all the data from the API
+and another to check if it received one hero for its id.
 
+```ts
+it('should call getHeroes and return a list of heroes', () => {
+			
+			// 1
+		  service.getHeroes().subscribe((res) => {
+				//2
+	      expect(res.length).toBeGreaterThan(0);
+	    });
+	
+			//3
+	    const req = httpController.expectOne({
+	      method: 'GET',
+	      url: `${url}${params}`,
+	    });
 
+			//4
+	    req.flush(arrayHeroes);
+
+	  });
+
+it('should call getHeroById and return the hero selected by its id', () => {
+
+    const addedStudent2: IHero = {
+      id: 5,
+      name: 'Dr MAnhattan',
+      thumbnail: 'path.extension',
+    };
+
+        service.getHeroById(addedHero.id).subscribe((res) => {
+            //2
+    expect(res).toEqual(addedHero);
+    });        
+
+    const req = httpController.expectOne({
+        method: 'GET',
+        url: `${url}${addedHero.id}`,
+    });
+
+    req.flush(addedHero);
+  });
+``` 
 
 ## Running unit tests
 
@@ -577,4 +567,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+If you have some doubts, don't hesitate to contact me through my e-mail heimricusdc@gmail.com 
+or in my [LinkedIn profile](https://www.linkedin.com/in/ericd%C3%ADazc%C3%ADvico/)instead.
