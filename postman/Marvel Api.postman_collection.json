@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "74ea9892-bbaf-42d4-acb9-e63f2da1df03",
+		"name": "Marvel Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20991919"
+	},
+	"item": [
+		{
+			"name": "ObtainCharacters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/characters?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "offset",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainCharactersInitName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/characters?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}&nameStartsWith=Spider",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						},
+						{
+							"key": "nameStartsWith",
+							"value": "Spider"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainCharactersForID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/characters/:id?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"characters",
+						":id"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1011136"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainCreators",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/creators?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"creators"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainCreatorsForId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/creators/:id?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"creators",
+						":id"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6606"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainCreatorsInitName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/creators?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}&nameStartsWith=B",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"creators"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						},
+						{
+							"key": "nameStartsWith",
+							"value": "B"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainComics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/comics?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainComicsForID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/comics/:id?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"comics",
+						":id"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1003"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainComicsInitName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{DOMAIN}}/{{VERSION}}/public/comics?ts={{TS}}&apikey={{APIKEY}}&hash={{HASH}}&titleStartsWith=C",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"{{VERSION}}",
+						"public",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "{{TS}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{APIKEY}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{HASH}}"
+						},
+						{
+							"key": "titleStartsWith",
+							"value": "C"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
