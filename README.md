@@ -94,7 +94,7 @@ Also i've created some environment variables to group a sets of values and made 
 
 ![alt-text-7](./src/assets/images/readme_images/environment_variables.png "Environment variables of the Marvel API")
 
-Then i exported the collections and the environment variables as a JSON into a folder called [Postman]() if you want to check out. 
+Then i exported the collections and the environment variables as a JSON into a folder called [Postman](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding/tree/master/postman) if you want to check out. 
 
 
 ## Default Scaffolding
