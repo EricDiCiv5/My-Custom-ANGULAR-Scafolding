@@ -74,9 +74,9 @@ For executing it, open a git bash terminal on the project's root folder and type
 
 Before starting to develop the project, i've made a previous web design using the Figma software , which recreates the web interface using three max-widths (the desktop, the horizontal smartphone and the vertical smartphone one)and store the three exported images on [the designs folder](./designs).
 
-![alt-text-1](./designs/VuelingExam_GenericWebDesign_Desktop.png "Design for Desktop")
-![alt-text-2](./designs/VuelingExam_GenericWebDesign_AndroidLarge_Horizontal.png "Design for Android Large Horizontal")
-![alt-text-3](./designs/VuelingExam_GenericWebDesign_AndroidLarge_Vertical.png "Design for Android Large Vertical")
+![alt-text-1](./designs/VuelingExam2_GenericWebDesign_Desktop.png "Design for Desktop")
+![alt-text-2](./designs/VuelingExam2_GenericWebDesign_AndroidLargeHorizontal.png "Design for Android Large Horizontal")
+![alt-text-3](./designs/VuelingExam2_GenericWebDesign_AndroidLargeVertical.png "Design for Android Large Vertical")
 
 
 ## Default Scaffolding
