@@ -5,6 +5,7 @@
 * [📖 S.O., NPM and NodeJS Versions](#some-versions)
 * [📚 NPM Libraries used for this project](#npm-libraries)
 * [🖼️ Previous Web Design](#previous-web-design)
+* [👨‍🚀 Postman requests tests](#postman)
 * [🏗️ Project's scaffolding](#default-scaffolding)
 * [📝 Checking if project is working](#check-proper-working)
 * [🎨 SCSS styles: variables, mixins and fonts](#scss-styles)
@@ -65,7 +66,7 @@ For executing it, open a git bash terminal on the project's root folder and type
 
 * ngx-translate to perform a multi.language selector in header component.
 * xng-breadcrumb (For showing the website's breadcrumbs in each )
-* jsonwebtoken (For getting and managing the token on its JWT server).
+* ts-md5 (For generating the hash to put a a param of the URL).
 * socket.io-client (For implementing the websockets functionalities on the website).
 
 ## Previous web Design
@@ -78,13 +79,30 @@ Before starting to develop the project, i've made a previous web design using th
 ![alt-text-2](./designs/VuelingExam2_GenericWebDesign_AndroidLargeHorizontal.png "Design for Android Large Horizontal")
 ![alt-text-3](./designs/VuelingExam2_GenericWebDesign_AndroidLargeVertical.png "Design for Android Large Vertical")
 
+## Postman
+Before creating the angular app, I made some HTTP request tests to the marvel API by using Postman software.
+
+But first i've read the API documentation to write the URL properly.
+
+The HTTP requests has been the obtantion of total characters, total comics and total creators and each one by an specific ID and if the name or title starts with some letter or group of letters.
+
+![alt-text-4](./src/assets/images/readme_images/marvel_Collections.png "Marvel API Collections")
+![alt-text-5](./src/assets/images/readme_images/nameStartsWith_Postman.png "nameStartsWith is for characters and creators")
+![alt-text-6](./src/assets/images/readme_images/titleStartsWith_Postman.png "titleStartsWith is for comics")
+
+Also i've created some environment variables to group a sets of values and made the url easy to mantain just by modifying the value of the variable.
+
+![alt-text-7](./src/assets/images/readme_images/environment_variables.png "Environment variables of the Marvel API")
+
+Then i exported the collections and the environment variables as a JSON into a folder called [Postman]() if you want to check out. 
+
 
 ## Default Scaffolding
 
 This project was generated with a custom template that i made and uploaded into this [Github's public repo](https://github.com/gdsa1022/My-Custom-ANGULAR-Scafolding).
 
-![alt-text-4](./src/assets/images/readme_images/EDC_DefaultScaffolding.png "Default scaffolding part1")
-![alt-text-5](./src/assets/images/readme_images/EDC_DefaultScaffolding2.png "Default scaffolding part2")
+![alt-text-8](./src/assets/images/readme_images/EDC_DefaultScaffolding.png "Default scaffolding part1")
+![alt-text-9](./src/assets/images/readme_images/EDC_DefaultScaffolding2.png "Default scaffolding part2")
 
 About the images above i just want to highlight that i've created the components, modules, pipes, services and styles folder inside the app one and also i've added inside the assets folder the i18n file for internazionalization and also the images folder for storing all the .svg, .png and jpg. files of the project.
 
