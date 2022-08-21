@@ -13,7 +13,7 @@ import { ObtainDataService } from './obtain-data.service';
 describe('ObtainDataService', () => {
   let service: ObtainDataService;
   let httpController: HttpTestingController;
-  const url = 'https://gateway.marvel.com/v1/public/';
+  const url = 'http://gateway.marvel.com/v1/public/';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
