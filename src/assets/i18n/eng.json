@@ -1,0 +1,27 @@
+{
+  "header": {
+    "subs": "SUBSCRIBE"
+  },
+  "loginButton": {
+    "text": "GO TO MARVEL's PAGE"
+  },
+  "footer": {
+    "about": "ABOUT MARVEL",
+    "helpF": "HELP FAQS",
+    "careers": "CAREERS",
+    "interns": "INTERNSHIPS",
+    "ads": "ADVERTISING",
+    "redeemDigCom": "REDEEM DIGITAL COMICS",
+    "marvelInsider": "Get Rewarded for Being a Marvel fan",
+    "marvelUnlimited": "Access Over +30.000+ Digital Comics",
+    "followMarvel": "FOLLOW MARVEL",
+    "termsOfUse": "Terms Of Use",
+    "privacyPolicy": "Privacy Policy",
+    "yourCAPrivRights": "Your California Privacy Rights",
+    "notSellPersInfo": "Do Not Sell My Personal Info",
+    "ChildOnline": "Children's Online Privacy Policy",
+    "LicAgree": "License Agreement",
+    "intBasedAds": "Interest-Based Ads",
+    "MarvInsTerm": "Marvel Insider Terms"
+  }
+}

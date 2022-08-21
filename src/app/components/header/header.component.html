@@ -1,21 +1,33 @@
 <header>
-    <h1>Calculadora Online</h1>
-    <nav class="enlaces">
-        <a routerLinkActive="active" [routerLink]="['/']">{{ 'navButton1.linkText' | translate}}</a>
-        <a routerLinkActive="active" [routerLink]="['/donaciones']">{{ 'navButton2.linkText' | translate}}</a>
-    </nav>
-    <form class="language-form">
-        <mat-form-field  class="details-form__form-field">
-            <mat-label class="details-form__form-field__label">Language</mat-label>
-            <mat-select class="details-form__form-field__select" name="language" (change)="useLanguage('index-en')">
-                <mat-option  *ngFor="let language of languages" value="{{language}}" >
-                    {{ language }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </form>
+  <section>
+    <!-- Nombre de usuario -->
+    <div class="left-section">
+      <div class="menu">
+        <button (click)="useLanguage('eng')">ENG</button>
+        <button (click)="useLanguage('es')">ESP</button>
+        <!--<i class="fa-solid fa-bars"></i>-->
+      </div>
+    </div>
+    <!-- Imagen de marvel -->
+    <div class="logo">
+      <figure><img [src]="img" [alt]="imgdescrip" /></figure>
+    </div>
+    <!-- Sección derecha -->
+    <div class="right-section">
+      <section class="extra">
+        <figure>
+          <img [src]="img2" [alt]="imgdescrip2" />
+        </figure>
+        <article>
+          <h4>MARVEL UNLIMITED</h4>
+          <h4 class="subscribe">{{ 'header.subs' | translate }}</h4>
+        </article>
+      </section>
+
+      <!-- Boton de cerrar sesion -->
+      <button type="button" (click)="logOut()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </section>
 </header>
-
-
-
-

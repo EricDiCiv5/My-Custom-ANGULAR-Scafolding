@@ -1,0 +1,540 @@
+@import "../../styles/global.scss";
+
+footer {
+  background-color: $blackMarvel;
+  display: block;
+  font-family: $mainFonts;
+  overflow: hidden;
+
+  section {
+    &:first-of-type {
+      @include flex(flex, row, nowrap, space-evenly, center, center);
+
+      @include allmedias(footerFirstChange) {
+        display: block;
+      }
+
+      article {
+        &:first-of-type {
+          flex: 1;
+          margin: 3% 5%;
+
+          figure {
+            width: 100%;
+
+            img {
+              width: 40%;
+            }
+          }
+
+          @include allmedias(footerFirstChange) {
+            display: inline-block;
+            margin: 3% auto 3% 5%;
+          }
+
+          @include allmedias(footerSecondChange) {
+            display: block;
+            margin: 0;
+            @include flex(flex, row, nowrap, center, center, center);
+
+            figure {
+              width: 8%;
+              margin: 3.5% auto;
+
+              img {
+                width: 100%;
+
+              }
+            }
+          }
+
+          @include allmedias(footerThirdChange) {
+            figure {
+              width: 16%;
+              margin: 6% auto;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          flex: 1;
+
+          ul {
+            list-style-type: none;
+            text-decoration: none;
+            color: $darkGrayMarvel;
+            font-weight: bold;
+            letter-spacing: .1em;
+            font-size: .9vw;
+
+            li {
+              margin: 4% auto;
+              color: $whiteMarvel;
+
+              &:hover {
+                color: $footerHoverButtonsMarvel;
+              }
+            }
+          }
+
+          @include allmedias(footerFirstChange) {
+            display: inline-block;
+            margin: 3% 7.5%;
+
+            ul {
+              letter-spacing: none;
+              font-size: 1.5vw;
+              letter-spacing: .2em;
+
+              li {
+                margin: 4% auto;
+              }
+            }
+          }
+
+          @include allmedias(footerSecondChange) {
+            @include flex(inline-flex, row, wrap, space-between, space-around, center);
+            margin: auto 10%;
+
+            ul {
+              letter-spacing: none;
+              font-size: 1.75vw;
+              letter-spacing: .3em;
+
+              li {
+                margin: 12% auto;
+              }
+            }
+          }
+
+          @include allmedias(footerThirdChange) {
+            @include flex(flex, column, nowrap, center, center, center);
+            margin: auto;
+
+            ul {
+              letter-spacing: none;
+              font-size: 3.25vw;
+              letter-spacing: .3em;
+              text-align: center;
+
+              li {
+                margin: 12% auto;
+              }
+            }
+          }
+        }
+
+        &:nth-of-type(4) {
+          @include grid(grid, 4, 2, 5%, 5%, center, center, center);
+
+          figure {
+            &:first-of-type {
+              grid-area: 1/1/3/2;
+            }
+
+            &:last-of-type {
+              grid-area: 3/1/5/2;
+            }
+
+            img {
+              width: 50%;
+            }
+          }
+
+          h4 {
+            justify-self: flex-start;
+            margin: .1%;
+            color: $whiteMarvel;
+
+            &:first-of-type {
+              grid-area: 1/2/2/3;
+            }
+
+            &:last-of-type {
+              grid-area: 3/2/4/3;
+            }
+          }
+
+          p {
+            justify-self: flex-start;
+            margin: .1%;
+            color: $darkGrayMarvel;
+
+            &:first-of-type {
+              grid-area: 2/2/3/3;
+            }
+
+            &:last-of-type {
+              grid-area: 4/2/5/3;
+            }
+          }
+
+          @include allmedias(footerFirstChange) {
+            @include grid(grid, 4, 2, 5%, 5%, center, center, center);
+
+            figure {
+              margin-left: 40%;
+
+              &:first-of-type {
+                grid-area: 1/1/3/2;
+              }
+
+              &:last-of-type {
+                grid-area: 1/3/3/4;
+              }
+
+              img {
+                width: 100%;
+              }
+            }
+
+            h4 {
+              justify-self: flex-start;
+              margin: 1%;
+              color: $whiteMarvel;
+              font-size: 1.3vw;
+
+              &:first-of-type {
+                grid-area: 1/2/2/3;
+              }
+
+              &:last-of-type {
+                grid-area: 1/4/2/5;
+              }
+            }
+
+            p {
+              justify-self: flex-start;
+              margin: 1%;
+              color: $darkGrayMarvel;
+              font-size: 1.5vw;
+              width: 150%;
+
+              &:first-of-type {
+                grid-area: 2/2/3/3;
+              }
+
+              &:last-of-type {
+                grid-area: 2/4/3/5;
+              }
+            }
+          }
+
+          @include allmedias(footerSecondChange) {
+            @include grid(grid, 4, 2, 15%, 5%, center, flex-start, center);
+            margin: 3% auto;
+
+            figure {
+              margin-left: 40%;
+
+              &:first-of-type {
+                grid-area: 1/1/3/2;
+              }
+
+              &:last-of-type {
+                grid-area: 3/1/5/2;
+              }
+
+              img {
+                width: 100%;
+              }
+            }
+
+            h4 {
+              justify-self: flex-start;
+              margin: 1%;
+              color: $whiteMarvel;
+              font-size: 2vw;
+
+              &:first-of-type {
+                grid-area: 1/2/2/3;
+              }
+
+              &:last-of-type {
+                grid-area: 3/2/4/3;
+              }
+            }
+
+            p {
+              justify-self: flex-start;
+              margin: 1%;
+              color: $darkGrayMarvel;
+              font-size: 2.25vw;
+              width: 150%;
+
+              &:first-of-type {
+                grid-area: 2/2/3/3;
+              }
+
+              &:last-of-type {
+                grid-area: 4/2/5/3;
+              }
+            }
+          }
+
+          @include allmedias(footerThirdChange) {
+            @include grid(grid, 4, 2, 15%, 5%, center, flex-start, center);
+            margin: 3% auto;
+
+            figure {
+              margin-left: 10%;
+              width: 100%;
+
+              img {
+                width: 80%;
+                margin: auto;
+              }
+            }
+
+            h4 {
+              font-size: 3.5vw;
+            }
+
+            p {
+              justify-self: flex-start;
+              margin: 0%;
+              color: $darkGrayMarvel;
+              font-size: 3.5vw;
+              text-overflow: clip;
+              width: 80%;
+
+              &:first-of-type {
+                grid-area: 2/2/3/3;
+              }
+
+              &:last-of-type {
+                grid-area: 4/2/5/3;
+              }
+            }
+          }
+        }
+
+        &:last-of-type {
+          flex: 1;
+          margin-left: 2%;
+          color: $whiteMarvel;
+
+          h5 {
+            font-family: $mainFonts;
+            font-size: 1vw;
+            letter-spacing: 1px;
+            margin-bottom: 10%;
+          }
+
+          section {
+            @include grid(grid, 2, 4, 45%, 25%, center, center, center);
+
+            i {
+              font-size: 1.2vw;
+              margin-bottom: 5%;
+              transition: .3s;
+              color: $darkGrayMarvel;
+
+              &:hover {
+                transition: .5s;
+                color: $whiteMarvel;
+              }
+
+              &:first-of-type {
+                grid-area: 1/1/2/2;
+              }
+
+              &:nth-of-type(2) {
+                grid-area: 1/2/2/3;
+              }
+
+              &:nth-of-type(3) {
+                grid-area: 1/3/2/4;
+              }
+
+              &:nth-of-type(4) {
+                grid-area: 1/4/2/5;
+              }
+
+              &:nth-of-type(5) {
+                grid-area: 2/1/3/2;
+              }
+
+              &:nth-of-type(6) {
+                grid-area: 2/2/3/3;
+              }
+
+              &:last-of-type {
+                grid-area: 2/3/3/4;
+              }
+            }
+          }
+
+
+          @include allmedias(footerFirstChange) {
+            margin-top: 3%;
+            margin-left: 2%;
+            @include flex(flex, column, wrap, center, flex-start, flex-start);
+
+            h5 {
+              flex: 1;
+              text-align: justify;
+              font-size: 1.66vw;
+              letter-spacing: .1em;
+              margin-top: 2.5%;
+              margin-bottom: 1%;
+            }
+
+            section {
+              @include flex(flex, row, wrap, space-between, center, center);
+              margin-top: 3%;
+
+              i {
+                flex: 1;
+                font-size: 2.25vw;
+                margin: auto 5.5% 10% 5.5%;
+              }
+            }
+          }
+
+          @include allmedias(footerSecondChange) {
+            margin-top: 10%;
+            margin-left: 8%;
+            @include flex(flex, column, wrap, center, flex-start, flex-start);
+
+            h5 {
+              font-size: 2.25vw;
+            }
+
+            section {
+              @include flex(flex, row, wrap, space-between, center, center);
+              margin: 3% 0%;
+
+              i {
+                font-size: 2.75vw;
+                margin: auto 5% 10% 5%;
+                transition: .3s;
+              }
+            }
+          }
+
+          @include allmedias(footerThirdChange) {
+            flex: 1;
+            margin-left: 4%;
+            margin-top: 20%;
+            color: $whiteMarvel;
+
+            h5 {
+              display: block;
+              font-family: $mainFonts;
+              font-size: 4vw;
+              letter-spacing: 1px;
+              margin: 5% 3%;
+            }
+
+            section {
+              @include grid(grid, 2, 4, 4.5vh, 15%, center, flex-start, center);
+              margin-left: 2.5%;
+
+              i {
+                font-size: 6vw;
+                margin-bottom: 10%;
+                transition: .3s;
+                color: $darkGrayMarvel;
+
+                &:hover {
+                  transition: .5s;
+                  color: $whiteMarvel;
+                }
+
+                &:first-of-type {
+                  grid-area: 1/1/2/2;
+                }
+
+                &:nth-of-type(2) {
+                  grid-area: 1/2/2/3;
+                }
+
+                &:nth-of-type(3) {
+                  grid-area: 1/3/2/4;
+                }
+
+                &:nth-of-type(4) {
+                  grid-area: 1/4/2/5;
+                }
+
+                &:nth-of-type(5) {
+                  grid-area: 2/1/3/2;
+                }
+
+                &:nth-of-type(6) {
+                  grid-area: 2/2/3/3;
+                }
+
+                &:last-of-type {
+                  grid-area: 2/3/3/4;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+    &:last-of-type {
+      margin: auto;
+      padding-top: 6%;
+      padding-bottom: 2%;
+      width: 80%;
+
+      a,
+      p {
+        color: $darkGrayMarvel;
+        font-size: .85vw;
+        margin: .75%;
+        text-overflow: clip;
+        text-align: center;
+      }
+
+      a {
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      @include allmedias(footerFirstChange) {
+        margin: auto;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        width: 80%;
+
+        a,
+        p {
+          color: $darkGrayMarvel;
+          font-size: 1.3vw;
+          margin: auto 1%;
+          display: inline-block;
+          text-overflow: clip;
+          text-align: center;
+        }
+      }
+
+      @include allmedias(footerThirdChange) {
+        width: 100%;
+        margin: auto;
+        text-align: CenteR;
+
+        a,
+        p {
+          color: $darkGrayMarvel;
+          font-size: 3.5vw;
+          margin: auto 1%;
+          display: inline-block;
+          text-overflow: clip;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

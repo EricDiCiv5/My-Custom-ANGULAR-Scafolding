@@ -1,0 +1,62 @@
+/*Creación del mapa de puntos de corte*/
+$breakpoints: (phone-small: 425px,
+  phone: 768px,
+  tab-port: 1024px,
+  tab-land: 1200px,
+  footerFirstChange: 840px,
+  footerSecondChange: 600px,
+  footerThirdChange: 426px,
+  tab-desktop: 1600px);
+
+/* Mixin para hacer responsive */
+@mixin allmedias($breakpoint) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+/*Para usarla en los componentes, llamarlo como 
+@include allmedias(nombre de la propiedad de $breakpoints) */
+
+/* Mixin de transform para que este en todos los navegadores */
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
+}
+
+/* Mixin para agrupar todas las propiedades de flexbox */
+@mixin flex($disp: flex, $direct: wrap, $corte: row, $justif:center, $alIt:center, $alCont:center) {
+  display: $disp;
+  flex-flow: $direct $corte;
+  justify-content: $justif;
+  align-items: $alIt;
+  align-content: $alCont;
+}
+
+/* Mixin para agrupar todas las propiedades de grid */
+@mixin grid($dis,
+  $filas,
+  $columnas,
+  $brechaFila,
+  $brechaCol,
+  $justIt,
+  $justCont,
+  $aliCont) {
+  display: $dis;
+  grid-template: repeat($filas, auto) / repeat($columnas, auto);
+  grid-gap: $brechaFila $brechaCol;
+  justify-items: $justIt;
+  justify-content: $justCont;
+  $align-content: $aliCont;
+}
+
+/* Mixing Box Sizing */
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model; // Safari <= 5
+    -moz-box-sizing: $box-model; // Firefox <= 19
+    -o-box-sizing: $box-model;
+    box-sizing: $box-model;
+}

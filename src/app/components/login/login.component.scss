@@ -1,0 +1,29 @@
+@import '../../styles/global.scss';
+
+
+main{
+    width: 99vw;
+    @include flex(flex, column, wrap, center, center, center);
+    background-image: url('../../../assets/images/heroImage_marvel.jpg');
+    background-size:cover;
+    height: 40vh;
+    @include box-sizing(border-box);
+    button{
+        background-color: $redMarvel;
+        color: $whiteMarvel;
+        box-shadow: 2px 2px 5px $darkGrayMarvel;
+        margin: 5% auto;
+        padding: 1.5%;
+        font-family: $mainFonts;
+        font-size: 1.5vw;
+        transition: 1s all;
+        &:hover{
+            padding: 2.5%;
+            font-size: 2.2vw;
+            background-color: $footerHoverButtonsMarvel;
+            color: $redMarvel;
+            box-shadow: 1px 1px 10px $blackMarvel2;
+             
+        }
+    }
+}

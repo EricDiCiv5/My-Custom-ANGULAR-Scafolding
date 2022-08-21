@@ -1,0 +1,7 @@
+<h1>Estas en la pantalla {{ currentState }}</h1>
+<app-table1
+  [displayedColumns]="displayedColumns"
+  [dataSource]="dataSource"
+  [state]="state"
+  (id_emitter)="obtainClick($event)"
+></app-table1>

@@ -1,0 +1,22 @@
+<span *ngFor="let charact of data | async">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ charact['name'] }}</mat-card-title>
+      <mat-card-subtitle>{{ charact['id'] }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="charact['thumbnail']! | imageConcat"
+      [alt]="charact['name']"
+    />
+    <mat-card-content>
+      <p>
+        {{ charact['description'] }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- TODO: IMPLEMENTAR goBack DE ANTES -->
+      <button mat-button (click)="goBack()">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</span>

@@ -67,7 +67,6 @@ For executing it, open a git bash terminal on the project's root folder and type
 * ngx-translate to perform a multi.language selector in header component.
 * xng-breadcrumb (For showing the website's breadcrumbs in each )
 * ts-md5 (For generating the hash to put a a param of the URL).
-* socket.io-client (For implementing the websockets functionalities on the website).
 
 ## Previous web Design
 
@@ -84,10 +83,10 @@ Before creating the angular app, I made some HTTP request tests to the marvel AP
 
 But first i've read the API documentation to write the URL properly.
 
-The HTTP requests has been the obtantion of total characters, total comics and total creators and each one by an specific ID and if the name or title starts with some letter or group of letters.
+The HTTP requests has been the obtantion of total characters, total comics and each one by an specific ID and also the comics which a characters appears and the characters that appears on a comic.
 
 ![alt-text-4](./src/assets/images/readme_images/marvel_Collections.png "Marvel API Collections")
-![alt-text-5](./src/assets/images/readme_images/nameStartsWith_Postman.png "nameStartsWith is for characters and creators")
+![alt-text-5](./src/assets/images/readme_images/nameStartsWith_Postman.png "nameStartsWith is for characters")
 ![alt-text-6](./src/assets/images/readme_images/titleStartsWith_Postman.png "titleStartsWith is for comics")
 
 Also i've created some environment variables to group a sets of values and made the url easy to mantain just by modifying the value of the variable.

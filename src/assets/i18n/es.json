@@ -1,0 +1,27 @@
+{
+  "header": {
+    "subs": "SUSCRÍBETE"
+  },
+  "loginButton": {
+    "text": "IR A LA PÁGINA DE MARVEL"
+  },
+  "footer": {
+    "about": "ACERCA MARVEL",
+    "helpF": "FAQS DE AYUDA",
+    "careers": "CARRERAS",
+    "interns": "PRÁCTICAS",
+    "ads": "PUBLICIDAD",
+    "redeemDigCom": "CANJEA CÓMICS DIGITALES",
+    "marvelInsider": "Sé Recompensado por Ser Fan de Marvel",
+    "marvelUnlimited": "Accede Sobre más de 30.000 Cómics Digitales",
+    "followMarvel": "SIGUE A MARVEL",
+    "termsOfUse": "Términos De Uso",
+    "privacyPolicy": "Política De privacidad",
+    "yourCAPrivRights": "Tus Derechos de Privacidad de California",
+    "notSellPersInfo": "No Vender Mi Información Personal",
+    "ChildOnline": "Política de Privacidad Infantil Online",
+    "LicAgree": "Acuerdo de Licencia",
+    "intBasedAds": "Anuncios Basados en Intereses",
+    "MarvInsTerm": "Términos de Marvel Insider"
+  }
+}

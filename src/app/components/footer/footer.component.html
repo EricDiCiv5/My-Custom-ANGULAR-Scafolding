@@ -1,1 +1,58 @@
-<p>footer works!</p>
+<footer>
+  <section>
+    <article>
+      <figure><img [src]="marvelM" [alt]="marvelMDescrip" /></figure>
+    </article>
+    <article>
+      <ul>
+        <li>{{ 'footer.about' | translate }}</li>
+        <li>{{ 'footer.helpF' | translate }}</li>
+        <li>{{ 'footer.careers' | translate }}</li>
+        <li>{{ 'footer.interns' | translate }}</li>
+      </ul>
+    </article>
+    <article>
+      <ul>
+        <li>{{ 'footer.ads' | translate }}</li>
+        <li>DISNEY+</li>
+        <li>MARVELHQ.COM</li>
+        <li>{{ 'footer.redeemDigCom' | translate }}</li>
+      </ul>
+    </article>
+    <article>
+      <figure>
+        <img [src]="marvelInsiderImg" [alt]="marvelInsiderDesc" />
+      </figure>
+      <h4>MARVEL INSIDER</h4>
+      <p>{{ 'footer.marvelInsider' | translate }}</p>
+      <figure>
+        <img [src]="marvelUnlimitedLogo" [alt]="marvelUnlimitedDesc" />
+      </figure>
+      <h4>MARVEL UNLIMITED</h4>
+      <p>{{ 'footer.marvelUnlimited' | translate }}</p>
+    </article>
+    <article>
+      <h5>{{ 'footer.followMarvel' | translate }}</h5>
+      <section>
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-tumblr"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-snapchat"></i>
+        <i class="fa-brands fa-pinterest"></i>
+      </section>
+    </article>
+  </section>
+  <section>
+    <a href="#">{{ 'footer.termsOfUse' | translate }}</a>
+    <a href="#">{{ 'footer.privacyPolicy' | translate }}</a>
+    <a href="#">{{ 'footer.yourCAPrivRights' | translate }}</a>
+    <a href="#">{{ 'footer.notSellPersInfo' | translate }}</a>
+    <a href="#">{{ 'footer.notSellPersInfo' | translate }}</a>
+    <a href="#">{{ 'footer.ChildOnline' | translate }}</a>
+    <a href="#">{{ 'footer.intBasedAds' | translate }}</a>
+    <a href="#">{{ 'footer.MarvInsTerm' | translate }}</a>
+    <p>&#169; 2022 MARVEL</p>
+  </section>
+</footer>
